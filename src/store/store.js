@@ -8,20 +8,20 @@ const rootReducer = combineReducers({
     products: productsReducer,
 })
 
-// const persistedStorageItems = localStorage.getItem('APP_PRODUCTS');
-// let preloadedState;
-// if (persistedStorageItems) {
-//     preloadedState = {
-//         products: {
-//             products: JSON.parse(persistedStorageItems),
-//         }
-//     };
-// }
+const persistedStorageItems = localStorage.getItem('APP_PRODUCTS');
+let preloadedState;
+if (persistedStorageItems) {
+    preloadedState = {
+        products: {
+            products: JSON.parse(persistedStorageItems),
+        }
+    };
+}
 
 // create the store
 const store = createStore(
     rootReducer,
-    // preloadedState, 
+    preloadedState, 
     composeWithDevTools()
 );
 export default store;
